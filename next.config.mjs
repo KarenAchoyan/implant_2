@@ -2,9 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   env: {
-    API_URL: "http://127.0.0.1:8000/api",
-    IMAGE_URL: "http://127.0.0.1:8000/storage/",
-    IMAGE_URL2: "https://poels.dahk.am/",
+    API_URL: "https://implants.geeklab.am/api",
+    IMAGE_URL: "https://implants.geeklab.am/storage/",
+    IMAGE_URL2: "https://implants.geeklab.am/",
   },
 
 };
