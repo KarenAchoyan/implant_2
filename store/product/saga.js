@@ -40,7 +40,6 @@ function* fetchFilterProducts({payload = {}}) {
 
 
 function* addProductSaga(action) {
-    debugger
     try {
         const newProduct = yield call(() => axiosInstance.post('/products', action.payload));
         yield put(addProduct.success(newProduct));

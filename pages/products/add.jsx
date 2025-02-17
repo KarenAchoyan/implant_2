@@ -27,6 +27,7 @@ const Add = () => {
         formData.append('sale_price', values.sale_price);
         formData.append('quantity', values.quantity);
         formData.append('description', values.description);
+        formData.append('height', values.height);
         if (avatarFile) {
             formData.append('avatar', avatarFile);
         }
@@ -115,6 +116,12 @@ const Add = () => {
                                 name="length"
                             >
                                 <Input placeholder="Enter Length"/>
+                            </Form.Item>
+                            <Form.Item
+                                label="Height"
+                                name="height"
+                            >
+                                <Input placeholder="Enter Height"/>
                             </Form.Item>
 
                             {/* Degree (Optional) */}

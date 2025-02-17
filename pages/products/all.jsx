@@ -54,10 +54,11 @@ const All = () => {
         formData.append('price', values.price);
         formData.append('sale_price', values.sale_price);
         formData.append('description', values.description);
+        formData.append('height', values.height);
         if (avatarFile) {
             formData.append('avatar', avatarFile);
         }
-        dispatch(updateProduct.request({formData, id:editingProduct.id}))
+        dispatch(updateProduct.request({formData, id: editingProduct.id}))
         message.success('Product updated successfully!');
         setIsModalVisible(false);
     };
@@ -65,7 +66,7 @@ const All = () => {
     const handleOrder = (values) => {
         const formData = new FormData();
         formData.append('quantity', values.quantity);
-        dispatch(callProduct.request({formData, id:editingProduct.id}))
+        dispatch(callProduct.request({formData, id: editingProduct.id}))
         message.success(`Ordered ${values.quantity} units of ${editingProduct.name}!`);
         setIsOrderModalVisible(false);
     };
@@ -91,22 +92,43 @@ const All = () => {
             title: 'Avatar',
             dataIndex: 'avatar',
             key: 'avatar',
-            render: (text) => <img src={process.env.IMAGE_URL + text} alt="avatar" style={{width: 50, height: 50}}/>,
+            render: (text) => <img src={process.env.IMAGE_URL2 + text} alt="avatar" style={{width: 50, height: 50}}/>,
         },
         {
             title: 'Diameters',
             dataIndex: 'diameter',
             key: 'diameter',
+            render: (text) => {
+                return (text === undefined || text === null) ? (
+                    <span></span>
+                ) : (
+                    <span>{text}</span>
+                );
+            },
         },
         {
             title: 'Length',
             dataIndex: 'length',
             key: 'length',
+            render: (degree) => {
+                return (degree === 'undefined' || degree === null) ? (
+                    <span></span>
+                ) : (
+                    <span>{degree}</span>
+                );
+            },
         },
         {
             title: 'Degree',
             dataIndex: 'degree',
             key: 'degree',
+            render: (degree) => {
+                return (degree === 'undefined' || degree === null) ? (
+                    <span></span>
+                ) : (
+                    <span>{degree}</span>
+                );
+            },
         },
         {
             title: 'Quantity',
@@ -132,6 +154,13 @@ const All = () => {
             title: 'Description',
             dataIndex: 'description',
             key: 'description',
+            render: (degree) => {
+                return (degree === 'undefined' || degree === null) ? (
+                    <span></span>
+                ) : (
+                    <span>{degree}</span>
+                );
+            },
         },
         {
             title: 'Actions',
@@ -228,6 +257,14 @@ const All = () => {
                                     rules={[{required: true, message: 'Please enter the reference!'}]}
                                 >
                                     <Input placeholder="Enter Ref"/>
+                                </Form.Item>
+
+                                <Form.Item
+                                    label="Height"
+                                    name="height"
+                                    rules={[{required: true, message: 'Please enter the height!'}]}
+                                >
+                                    <Input placeholder="Enter height"/>
                                 </Form.Item>
 
                                 <Form.Item label="Description" name="description">
